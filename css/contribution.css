@@ -1,0 +1,103 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+body {
+    font-family: 'Poppins', sans-serif; /* Changed font-family */
+    margin: 0;
+    padding: 0;
+    background-color:#B0CBC0 ; /* Set background color */
+}
+
+.container {
+   
+    max-width: 800px;
+    margin: 70px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color:#ffffff ; /* Set background color */
+    margin-top: 150px;
+} 
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color:#ffffff ; /* Set background color */
+}
+
+textarea {
+    height: 120px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0171d3;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #023f81;
+}
+
+.success-message {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #0171d3; /* Change the background color as needed */
+    padding: 10px 0; /* Add padding for better appearance */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin-right: 20px; /* Adjust the margin between nav items as needed */
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    color: #474e4e;
+}

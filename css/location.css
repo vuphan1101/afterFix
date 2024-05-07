@@ -1,0 +1,125 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Changed font-family */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #B0CBC0; /* Set background color */
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    font-weight: bold;
+    color: #333; /* Adjust the color for better contrast */
+}
+
+p {
+    font-size: 16px; /* Define font size for body text */
+    line-height: 1.5; /* Adjust line-height for better spacing */
+}
+
+/* Header Styles */
+.mainNav {
+    background-color: #B0CBC0; /* Updated background color */
+    padding: 20px 0;
+    display: flex; /* Center the content horizontally */
+    justify-content: center;
+    align-items: center;
+}
+
+.contentWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+button.btn {
+    padding: 10px 16px; /* Adjust padding for better spacing */
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #0171d3; /* Matched background color */
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s ease-in-out; /* Add a smooth hover effect */
+    text-align: center; /* Center the text */
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #0171d3; /* Change the background color as needed */
+    padding: 10px 0; /* Add padding for better appearance */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin-right: 20px; /* Adjust the margin between nav items as needed */
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.nav-link:hover {
+    color: #474e4e;
+}
+
+/* Updated CSS for map and locations container */
+.map-and-locations-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.map-container {
+    width: calc(70% - 10px); /* Adjust width as needed, considering margin */
+    height: 600px;
+    margin-bottom: 20px;
+}
+
+.locations-container {
+    width: calc(30% - 10px); /* Adjust width as needed, considering margin */
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.locations-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.locations-list li {
+    margin-bottom: 10px;
+}
+.search-container {
+    margin-bottom: 20px;
+    width: 100%; /* Ensure search bar spans full width */
+    display: flex;
+    justify-content: center;
+}
+
+.search-input {
+    width: 70%; 
+}
+
+.search-btn {
+    margin-left: 10px; 
+}
+

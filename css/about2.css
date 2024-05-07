@@ -1,0 +1,91 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Global styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    font-weight: 300;
+    background-color: #B0CBC0; /* Set background color */
+}
+
+
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ffffff; /* Set background color */
+}
+
+textarea {
+    height: 120px;
+}
+
+
+input[type="submit"]:hover {
+    background-color: #023f81;
+}
+
+.success-message {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+}
+
+/* Navigation bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #0171d3; /* Change the background color as needed */
+    padding: 10px 0; /* Add padding for better appearance */
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-item {
+    margin-right: 20px; /* Adjust the margin between nav items as needed */
+}
+
+.nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: bold; /* Added font-weight */
+}
+
+.nav-link:hover {
+    color: #474e4e;
+}

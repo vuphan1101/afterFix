@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/account.css">
+
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class="container forms">
+        <!-- Login Form -->
+        <div class="form login">
+            <div class="form-content">
+                <header>Login</header>
+                <form id="loginForm">
+                    <div class="field input-field">
+                        <label for="loginEmail">Email:</label>
+                        <input type="email" id="loginEmail" class="input" placeholder="Email" title="Enter your email address" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <label for="loginPassword">Password:</label>
+                        <input type="password" id="loginPassword" class="password" placeholder="Password" title="Enter your password" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="button" id="signIn" onclick="login()">Login</button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class='bx bxl-facebook facebook-icon'></i>
+                    <span>Login with Facebook</span>
+                </a>
+            </div>
+
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <img src="images/google.png" alt="Google logo" class="google-img">
+                    <span>Login with Google</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form signup">
+            <div class="form-content">
+                <header>Signup</header>
+                <form id="signupForm">
+                    <div class="field input-field">
+                        <label for="signupEmail">Email:</label>
+                        <input type="email" id="signupEmail" class="input" placeholder="Email" title="Enter your email address" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <label for="signupPassword">Create Password:</label>
+                        <input type="password" id="signupPassword" class="password" placeholder="Create password" title="Enter a strong password" required>
+                    </div>
+
+                    <div class="field input-field">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" id="confirmPassword" class="password" placeholder="Confirm password" title="Re-enter your password" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+
+                    <div class="field button-field">
+                        <button type="button" id="signUp" onclick="signup()">Signup</button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                </div>
+            </div>
+
+            <div class="line"></div>
+
+            <div class="media-options">
+                <a href="#" class="field facebook">
+                    <i class='bx bxl-facebook facebook-icon'></i>
+                    <span>Login with Facebook</span>
+                </a>
+            </div>
+
+            <div class="media-options">
+                <a href="#" class="field google">
+                    <img src="images/google.png" alt="Google logo" class="google-img">
+                    <span>Login with Google</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDlXo12GqCJ5rRDg5zfp-3nBPg0xHQdX8c",
+          authDomain: "account-50acb.firebaseapp.com",
+          databaseURL: "https://account-50acb-default-rtdb.firebaseio.com",
+          projectId: "account-50acb",
+          storageBucket: "account-50acb.appspot.com",
+          messagingSenderId: "189899075756",
+          appId: "1:189899075756:web:2b3713ed89be68a65bef09",
+          measurementId: "G-VXEKMDRB94"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+        // Selecting the signUp button element
+        const signUp = document.getElementById('signUp');
+
+        signUp.addEventListener('click', (e) => {
+            var email = document.getElementById('signupEmail').value;
+            var password = document.getElementById('signupPassword').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password != confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed up
+                    const user = userCredential.user;
+
+                    // Setting user data in the database
+                    set(ref(database, 'users/' + user.uid), {
+                        email: email
+                    }).then(() => {
+                        alert('User created successfully!');
+                    }).catch((error) => {
+                        alert('Error occurred while setting user data: ' + error.message);
+                    });
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });
+
+        signIn.addEventListener('click', (e) => {
+            var email = document.getElementById('loginEmail').value;
+            var password = document.getElementById('loginPassword').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+
+                    const dt = new Date();
+                    update(ref(database, 'users/' + user.uid), {
+                        last_login: dt,
+                    });
+                    window.location.assign("user.html");
+                    alert('Login Successfully!');
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });
+    </script>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom CSS file link -->
+    <link rel="stylesheet" href="css/donation.css">
+    <style>
+        /* Target the navbar with the ID 'mainNav' */
+        #mainNav {
+            background-color: #ffffff; /* Adjusted background color */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            height: 100px; /* Adjust the height as needed */
+        }
+
+        /* CSS styling */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center the navigation items */
+        #mainNav .navbar-nav .nav-item {
+            margin-right: 10px; /* Adjust as needed */
+        }
+
+        #mainNav .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="edu.html">Educational Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contribution.html">Contribute</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content: Donation form -->
+    <div class="container">
+        <form action="" method="post">
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">Information</h3>
+                    
+                    <!-- First Name -->
+                    <div class="inputBox">
+                        <label for="firstName">First Name *</label>
+                        <input id="firstName" type="text" name="firstName" placeholder="First Name" required>
+                    </div>
+                    
+                    <!-- Last Name -->
+                    <div class="inputBox">
+                        <label for="lastName">Last Name *</label>
+                        <input id="lastName" type="text" name="lastName" placeholder="Last Name" required>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="inputBox">
+                        <label for="email">Email *</label>
+                        <input id="email" type="email" name="email" placeholder="example@gmail.com" required>
+                    </div>
+                    
+                    <!-- Address -->
+                    <div class="inputBox">
+                        <label for="address">Address *</label>
+                        <input id="address" type="text" name="address" placeholder="Street" required>
+                    </div>
+                    
+                    <!-- City -->
+                    <div class="inputBox">
+                        <label for="city">City *</label>
+                        <input id="city" type="text" name="city" placeholder="City" required>
+                    </div>
+                    
+                    <div class="flex">
+                        <!-- State -->
+                        <div class="inputBox">
+                            <label for="state">State *</label>
+                            <input id="state" type="text" name="state" placeholder="State" required>
+                        </div>
+                        
+                        <!-- Zip Code -->
+                        <div class="inputBox">
+                            <label for="zipCode">Zip Code *</label>
+                            <input id="zipCode" type="text" name="zipCode" placeholder="12345" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <h3 class="title">Donation</h3>
+                    
+                    <!-- Donation Amount -->
+                    <div class="inputBox">
+                        <label for="donationAmount">Amount *</label>
+                        <input id="donationAmount" type="text" name="donationAmount" placeholder="$20" required>
+                    </div>
+                    
+                    <!-- Cards Accepted -->
+                    <div class="inputBox">
+                        <label>Cards accepted:</label>
+                        <img src="images/card_img.png" alt="Accepted Cards">
+                    </div>
+                    
+                    <!-- Name on Card -->
+                    <div class="inputBox">
+                        <label for="cardName">Name on Card *</label>
+                        <input id="cardName" type="text" name="cardName" placeholder="Name on Card" required>
+                    </div>
+                    
+                    <!-- Credit Card Number -->
+                    <div class="inputBox">
+                        <label for="cardNumber">Credit Card Number *</label>
+                        <input id="cardNumber" type="text" name="cardNumber" placeholder="1111-1111-1111-1111" required>
+                    </div>
+                    
+                    <!-- Expiration Month -->
+                    <div class="inputBox">
+                        <label for="expMonth">Exp Month *</label>
+                        <input id="expMonth" type="text" name="expMonth" placeholder="Month" required>
+                    </div>
+                    
+                    <div class="flex">
+                        <!-- Expiration Year -->
+                        <div class="inputBox">
+                            <label for="expYear">Exp Year *</label>
+                            <input id="expYear" type="text" name="expYear" placeholder="2023" required>
+                        </div>
+                        
+                        <!-- CVV -->
+                        <div class="inputBox">
+                            <label for="cvv">CVV *</label>
+                            <input id="cvv" type="text" name="cvv" placeholder="1234" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Submit button -->
+            <input type="submit" value="Submit" class="submit-btn">
+        </form>
+    </div>
+
+    <!-- JavaScript file -->
+    <script src="js/donation.js"></script>
+</body>
+</html>

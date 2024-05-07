@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>WasteWise</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Bootstrap icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap) -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* CSS styles for accessibility improvements */
+        /* Adjust the contrast of text elements */
+        .masthead h1, .masthead p, .features-icons h3, .features-icons p, .showcase h2, .showcase p {
+            color: #333; /* Darker color for better contrast */
+        }
+
+        /* Target the navbar with the ID 'mainNav' */
+        #mainNav {
+            background-color: #ffff; /* Light background color for better contrast */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            height: 80px; /* Adjust the height as needed */
+        }
+
+        /* CSS for main navigation */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center the navigation items */
+        #mainNav .navbar-nav .nav-item {
+            margin-right: 10px; /* Adjust as needed */
+        }
+
+        #mainNav .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        /* Add padding to increase space for content */
+        .masthead {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+
+        /* Custom button style */
+        .custom-btn {
+            background-color: #0d6efd; /* Background color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Adjust padding */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Skip navigation link for screen reader users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            height: 1px;
+            width: 1px;
+            overflow: hidden;
+        }
+
+        .skip-link:focus {
+            position: static;
+            height: auto;
+            width: auto;
+            overflow: visible;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Skip navigation link -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#">WasteWise</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- Center the navigation links -->
+                <ul class="navbar-nav ms-auto mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="edu.html">Educational Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contribution.html">Contribute</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-primary btn-lg custom-btn" href="account.html">Log In</a>
+        </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="masthead">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="text-center text-white">
+                        <!-- Page heading -->
+                        <h1 class="mb-3">Welcome to WasteWise</h1>
+                        <p class="lead">Find out what you can recycle and where!</p>
+                        <!-- Search and location bar -->
+                        <form class="form-subscribe" id="searchForm" action="location.html" method="GET">
+                            <!-- Add the action attribute to specify the target page (location.html) -->
+                            <div class="row mb-4">
+                                <div class="col-md-10">
+                                    <!-- Add a label for search input -->
+                                    <label for="searchInput">Location:</label>
+                                    <input class="form-control form-control-lg" id="searchInput" type="text" name="search" placeholder="Location..." required />
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary btn-lg" id="searchButton" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Remaining content here -->
+
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center" id="main-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-people m-auto text-primary"></i></div>
+                        <h3>Empowering Recycling</h3>
+                        <p class="lead mb-0">Helping individuals and communities make informed recycling decisions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-globe m-auto text-primary"></i></div>
+                        <h3>Global Impact</h3>
+                        <p class="lead mb-0">Contributing to environmental sustainability efforts worldwide.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-search m-auto text-primary"></i></div>
+                        <h3>User-Friendly Interface</h3>
+                        <p class="lead mb-0">Easily search recyclability of items and locate nearby recycling facilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcases -->
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>WasteWise - Your Recycling Companion</h2>
+                    <p class="lead mb-0">Discover the ease of recycling with WasteWise. Get ready to embrace a greener lifestyle!</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Together for a Greener Planet</h2>
+                    <p class="lead mb-0">Join us in our mission to make the world a cleaner and healthier place for future generations.</p>
+                </div>
+            </div>
+            <div class="row g-0">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Simplicity at its Best</h2>
+                    <p class="lead mb-0">WasteWise offers a hassle-free experience, ensuring you can navigate through recycling effortlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials text-center bg-light">
+        <div class="container">
+            <h2 class="mb-5">What people are saying...</h2>
+            <div class="row justify-content-center"> <!-- Center the content -->
+                <div class="col-lg-12"> <!-- Use a single column for all testimonials -->
+                    <div class="row justify-content-center"> <!-- Center the testimonial items -->
+                        <div class="col-lg-auto"> <!-- Adjust column size as needed -->
+                            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                                <img class="img-fluid rounded-circle mb-3" src="assets/img/first.jpg" alt="..." />
+                                <h5>Mary</h5>
+                                <p class="font-weight-light mb-0">"WasteWise has been invaluable in helping me understand recycling better! Thanks for this wonderful resource!"</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-auto"> <!-- Adjust column size as needed -->
+                            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                                <img class="img-fluid rounded-circle mb-3" src="assets/img/second.jpg" alt="..." />
+                                <h5>James</h5>
+                                <p class="font-weight-light mb-0">"WasteWise has truly revolutionized my approach to recycling education. It's an amazing tool that I highly recommend to everyone"</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-auto"> <!-- Adjust column size as needed -->
+                            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                                <img class="img-fluid rounded-circle mb-3" src="assets/img/third.jpg" alt="..." />
+                                <h5>Emily</h5>
+                                <p class="font-weight-light mb-0">"I'm incredibly grateful for WasteWise and its commitment to providing free, accessible resources for sustainable living. Thank you for this initiative!"</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-auto"> <!-- Adjust column size as needed -->
+                            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                                <img class="img-fluid rounded-circle mb-3" src="assets/img/fourth.jpeg" alt="..." />
+                                <h5>George</h5>
+                                <p class="font-weight-light mb-0">"WasteWise has empowered me to make sustainable choices effortlessly. Thank you for the invaluable resources!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="call-to-action text-white text-center" id="signup">
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+                    <!-- Signup form -->
+                    <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+                        <!-- Email address input -->
+                        <div class="row">
+                            <div class="col">
+                                <!-- Add a label for email input -->
+                                <label for="emailAddressBelow">Email Address:</label>
+                                <input class="form-control form-control-lg" id="emailAddressBelow" type="email" name="email" placeholder="Email Address" required data-sb-validations="required,email" />
+                                <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
+                                <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email address is not valid.</div>
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                            </div>
+                        </div>
+                        <!-- Submit success message -->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                <p>To activate this form, sign up at</p>
+                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message -->
+                        <div class="d-none" id="submitErrorMessage">
+                            <div class="text-center text-danger mb-3">Error sending message!</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS -->
+    <script src="js/scripts.js"></script>
+    <!-- SB Forms Contact Form -->
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>

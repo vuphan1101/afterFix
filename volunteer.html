@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volunteer</title>
+  <link rel="stylesheet" href="css/volunteer.css">
+
+  <style>
+    /* Target the navbar with the ID 'mainNav' */
+    #mainNav {
+        background-color: #ffff;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        height: 80px; /* Adjust the height as needed */
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+     /* Center the navigation items */
+     #mainNav .navbar-nav .nav-item {
+        margin-right: 10px; /* Adjust as needed */
+    }
+
+    #mainNav .navbar-nav .nav-item:last-child {
+        margin-right: 0;
+    }
+</style>
+
+</head>
+<body>
+
+    <!-- Navigation-->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+            <ul class="navbar-nav ms-auto">
+                <class="nav-item"><a class="nav-link" href="index.html">Home</a>
+                <class="nav-item"><a class="nav-link" href="edu.html">Educational Resources</a>
+                <class="nav-item"><a class="nav-link" href="about.html">About</a>
+                <class="nav-item"><a class="nav-link" href="contribution.html">Contribute</a>
+                <class="nav-item"><a class="nav-link" href="location.html">Locations</a>
+                <class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a>
+                <class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a>
+                <class="nav-item"><a class="nav-link" href="donation.html">Donation</a>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="table-wrapper">
+      <table class="table-users">
+        <header>
+            <h3>List Members</h3>
+          </header>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </table>
+      <button class="btn btn-add">Add</button>
+    </div>
+    <!-- Add Modal -->
+    <div class="add-modal modal-wrapper">
+      <div class="modal">
+        <div class="modal-header"><h3>Add Volunteer</h3></div>
+        <div class="modal-body">
+          <form class="form" autocomplete="off">
+            
+            <input type="text" name="firstName" placeholder="First Name">
+            <input type="text" name="lastName" placeholder="Last Name">
+            <input type="number" name="phone" placeholder="Phone">
+            <input type="email" name="email" placeholder="Email">
+            <button class="btn btn-modal">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="edit-modal modal-wrapper">
+      <div class="modal">
+        <div class="modal-header"><h3>Edit User</h3></div>
+        <div class="modal-body">
+          <form class="form" autocomplete="off">
+            <input type="text" name="firstName" placeholder="First Name">
+            <input type="text" name="lastName" placeholder="Last Name">
+            <input type="number" name="phone" placeholder="Phone">
+            <input type="email" name="email" placeholder="Email">
+            <button class="btn btn-modal">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyD8f7uyw1_qhjecuTBQKzCd2hCvgD5Mo7I",
+  authDomain: "wastewise-48116.firebaseapp.com",
+  projectId: "wastewise-48116",
+  storageBucket: "wastewise-48116.appspot.com",
+  messagingSenderId: "99260039179",
+  appId: "1:99260039179:web:d9581ddb1f15726752870e"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+  </script>
+  <script src="js/volunteer.js"></script>
+</body>
+</html>

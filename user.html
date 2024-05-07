@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Inventory</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+	<style>
+        /* Custom CSS for background */
+        body {
+            background-color: #B0CBC0; /* Adjust the color and opacity as needed */
+        }
+
+        /* Target the navbar with the ID 'mainNav' */
+        #mainNav {
+            background-color: #ffff;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            height: 80px; /* Adjust the height as needed */
+        }
+
+        body {
+            margin: 0;
+            padding: 50px;
+        }
+
+         /* Center the navigation items */
+        #mainNav .navbar-nav .nav-item {
+            margin-right: 10px; /* Adjust as needed */
+        }
+
+        #mainNav .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        /* Add padding to increase space for content */
+        .masthead {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+	
+    </style>
+
+</head>
+<body>
+     <!-- Navigation-->
+     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#">WasteWise</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- Center the navigation links -->
+                <ul class="navbar-nav ms-auto mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="edu.html">Educational Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contribution.html">Contribute</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-primary btn-lg custom-btn" href="index.html">Log out</a>
+        </div>
+    </nav> 
+
+	<div class="container mt-5">
+		<h1 class="text-center mb-4">My Recycable Items</h1>
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-body">
+						<form id="todo-form">
+							<div class="input-group mb-3">
+								<input type="text" class="form-control"
+									id="todo-input"
+									placeholder="Add recycable item"
+									required>
+								<button class="btn btn-primary" type="submit">
+									Add
+								</button>
+							</div>
+						</form>
+						<ul class="list-group" id="todo-list">
+							<!-- Tasks will be added here dynamically -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS Bundle (popper.js included) -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<script>
+		// Function to add a new task
+		function addTask(task) {
+			const todoList = document.getElementById("todo-list");
+			const li = document.createElement("li");
+			li.className = "list-group-item d-flex justify-content-between align-items-center";
+			li.innerHTML = `
+		<span class="task-text">${task}</span>
+		<input type="text" class="form-control edit-input" style="display: none;" value="${task}">
+		<div class="btn-group">
+		<button class="btn btn-danger btn-sm delete-btn">✕</button>
+		<button class="btn btn-primary btn-sm edit-btn">✎</button>
+		</div>
+	`;
+			todoList.appendChild(li);
+		}
+
+		// Event listener for form submission
+		document.getElementById("todo-form").addEventListener("submit",
+			function (event) {
+				event.preventDefault();
+				const taskInput = document.getElementById("todo-input");
+				const task = taskInput.value.trim();
+				if (task !== "") {
+					addTask(task);
+					taskInput.value = "";
+				}
+			});
+
+		// Event listener for delete button click
+		document.getElementById("todo-list").addEventListener("click",
+			function (event) {
+				if (event.target.classList.contains("delete-btn")) {
+					event.target.parentElement.parentElement.remove();
+				}
+			});
+
+		// Event listener for edit button click
+		document.getElementById("todo-list").addEventListener("click", function (event) {
+			if (event.target.classList.contains("edit-btn")) {
+				const taskText = event.target.parentElement
+					.parentElement.querySelector(".task-text");
+				const editInput = event.target.parentElement
+					.parentElement.querySelector(".edit-input");
+				if (taskText.style.display !== "none") {
+					taskText.style.display = "none";
+					editInput.style.display = "block";
+					editInput.focus();
+					event.target.innerHTML = "";
+				} else {
+					taskText.textContent = editInput.value;
+					taskText.style.display = "inline";
+					editInput.style.display = "none";
+					event.target.innerHTML = "✎";
+				}
+			}
+		});
+
+		// Add default tasks
+		const defaultTasks = ["Junk mail", "Bottles", "Clothings", "Dead Batteries"];
+		defaultTasks.forEach(task => addTask(task));
+	</script>
+</body>
+
+</html>
+

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>WasteWise</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/location.css">
+    <style>
+        /* Target the navbar with the ID 'mainNav' */
+        #mainNav {
+            background-color: #ffff;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            height: 80px; /* Adjust the height as needed */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center the navigation items */
+        #mainNav .navbar-nav .nav-item {
+            margin-right: 10px; /* Adjust as needed */
+        }
+
+        #mainNav .navbar-nav .nav-item:last-child {
+            margin-right: 0;
+        }
+
+        /* Add padding to increase space for content */
+        .masthead {
+            padding-top: 150px;
+            padding-bottom: 150px;
+        }
+        .custom-btn {
+            background-color: #0d6efd; /* Background color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Adjust padding */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Global styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Main content styles */
+        .content-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            padding-top: 100px; /* Add top padding to prevent navbar from covering the search bar */
+        }
+
+        .map-container {
+            width: 70%;
+            height: 600px;
+            margin-bottom: 20px;
+        }
+
+        .locations-container {
+            width: 29%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .locations-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .locations-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Search bar styles */
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="index.html">WasteWise</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <!-- Center the navigation links -->
+                <ul class="navbar-nav ms-auto mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="edu.html">Educational Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contribution.html">Contribute</a></li>
+                    <li class="nav-item"><a class="nav-link" href="location.html">Locations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+                </ul>
+            </div>
+            <a class="btn btn-primary btn-lg custom-btn" href="account.html">Log In</a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content-container">
+        <!-- Search bar -->
+        <div class="search-container">
+            <input type="text" id="searchTextField" class="search-input" placeholder="Enter a location">
+            <button onclick="searchLocation()" class="search-btn">Search</button>
+        </div>
+
+        <!-- Map container -->
+        <div class="map-container" id="map"></div>
+
+        <!-- Recycling locations container -->
+        <div class="locations-container">
+            <h3>Recycling Centers:</h3>
+            <ul class="locations-list" id="locationsList"></ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC--LzJQPpIzp3bWoG8Ir3kUk7JDS4uXRw&libraries=places"></script>
+    <script>
+        var map;
+        var service;
+        var infowindow;
+
+        function initialize() {
+            var dfwCoordinates = new google.maps.LatLng(32.8975, -97.0404);
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: dfwCoordinates,
+                zoom: 10
+            })
+
+            var input = document.getElementById('searchTextField');
+            let autocomplete = new google.maps.places.Autocomplete(input);
+
+            autocomplete.bindTo('bounds', map);
+
+            let marker = new google.maps.Marker({
+                map: map
+            });
+
+            // Get user's current location
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    // Update map center to user's current location
+                    map.setCenter(userLocation);
+
+                    // Create marker for user's current location
+                    var userMarker = new google.maps.Marker({
+                        position: userLocation,
+                        map: map,
+                        title: 'Your Location',
+                        icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png' // Set custom marker icon
+                    });
+
+                    // Call function to find nearby locations of the keyword at user's current location
+                    findNearbyLocations(userLocation);
+                }, function () {
+                    handleLocationError(true, infowindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infowindow, map.getCenter());
+            }
+
+            google.maps.event.addListener(autocomplete, 'place_changed', () => {
+                let place = autocomplete.getPlace()
+                console.log(place)
+                console.log(place.photos[0].getUrl())
+
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZone(17);
+                }
+                marker.setPosition(place.geometry.location);
+                marker.setVisible(true);
+
+                // Search for nearby locations of the keyword at the selected location
+                findNearbyLocations(place.geometry.location);
+            });
+        }
+
+        function searchLocation() {
+            var inputText = document.getElementById('searchTextField').value;
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'address': inputText }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(15);
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function findNearbyLocations(location) {
+            let request = {
+                location: location,
+                radius: '5000',
+                keyword: 'garbage|landfill'
+            };
+
+            service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, callback);
+        }
+
+        function callback(results, status) {
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    var place = results[i];
+                    createMarker(results[i]);
+
+                    var listItem = document.createElement('li');
+                    listItem.textContent = place.name + ' - ' + place.vicinity; // Include name and vicinity (address)
+                    locationsList.appendChild(listItem);
+                }
+            }
+        }
+
+        function createMarker(place) {
+            var marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                alert(place.name);
+                window.open(place.photos[0].getUrl(), "_blank");
+            });
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            // Error handling if geolocation fails
+            var errorString = browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.';
+            console.log(errorString);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize)
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the search query parameter from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+
+            // Set the search query in the search input field
+            document.getElementById('searchTextField').value = searchQuery || '';
+        });
+    </script>
+</body>
+
+</html>

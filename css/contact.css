@@ -1,0 +1,151 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif; /* Changed font-family */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color:#B0CBC0 ; /* Set background color */
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333; /* Adjust the color for better contrast */
+}
+
+p {
+  font-size: 16px; /* Define font size for body text */
+  line-height: 1.5; /* Adjust line-height for better spacing */
+}
+
+/* Header Styles */
+.mainNav {
+  background-color: #B0CBC0; /* Updated background color */
+  padding: 20px 0;
+  display: flex; /* Center the content horizontally */
+  justify-content: center;
+  align-items: center;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Content Styles */
+.contacts_container {
+  display: flex;
+  gap: 20px;
+  justify-content: center; /* Center the container horizontally */
+}
+
+.contacts_infoGrayBox {
+  background-color: #ffffff; /* Use white background for better contrast */
+  padding: 20px 20px; /* Reduce padding for smaller size */
+  border-radius: 5px;
+  text-align: center;
+  /* Reduce the width of the box */
+  width: 350px;
+  margin-top: 110px;
+}
+
+.contacts_infoGrayBox img {
+  max-width: 100%; /* Allow image to fill container width */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 10px; /* Add some spacing below the image */
+  margin-top: 110px; /* Add margin at the top */
+  max-height: 200px; /* Adjust maximum height if needed */
+}
+
+.contacts_form {
+  background-color: #ffffff; /* Use white background for better contrast */
+  border-radius: 5px;
+  padding: 20px; /* Adjust padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Set a smaller width for the form */
+  width: 500px;
+  margin-top: 110px; /* Add margin at the top */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Adjust margin for better spacing */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold; /* Make labels bolder for better readability */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 95%;
+  padding: 15px 8px; /* Adjust padding for better spacing */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  &::placeholder {
+    color:#B0CBC0 ;
+  }
+}
+
+button.btn {
+  padding: 10px 16px; /* Adjust padding for better spacing */
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #0171d3; /* Matched background color */
+  color: #fff;
+  border: none;
+  transition: background-color 0.2s ease-in-out; /* Add a smooth hover effect */
+  text-align: center; /* Center the text */
+}
+
+button.btn:hover {
+  background-color: #023f81; /* Change hover color for a subtle effect */
+  text-align: center; /* Center the text */
+}
+
+/* Submitted Successfully Message */
+#confirmationMessage {
+  color: #070707;
+  text-align: center; /* Center the text */
+  font-size: 1em; /* Adjust the font size to match the "Contact Us" heading */
+  margin-top: 50px; /* Add margin at the top */
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #0171d3; /* Change the background color as needed */
+  padding: 10px 0; /* Add padding for better appearance */
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-item {
+  margin-right: 20px; /* Adjust the margin between nav items as needed */
+}
+
+.nav-link {
+  color: #000000;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.nav-link:hover {
+  color: #474e4e;
+}
